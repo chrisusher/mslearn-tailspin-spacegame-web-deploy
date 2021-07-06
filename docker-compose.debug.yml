@@ -1,0 +1,29 @@
+# Please refer https://aka.ms/HTTPSinContainer on how to setup an https developer certificate for your ASP .NET Core service.
+
+version: '3.4'
+
+services:
+  tailspinspacegameweb:
+    image: tailspinspacegameweb
+    build:
+      context: .
+      dockerfile: Tailspin.SpaceGame.Web/Dockerfile
+    ports:
+      - 5000:5000
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    volumes:
+      - ~/.vsdbg:/remote_debugger:rw
+  
+  sql-server:
+    image: mcr.microsoft.com/mssql/server
+    environment:
+      SA_PASSWORD: 1AvenueCodePassword*
+      ACCEPT_EULA: "Y"
+    ports:
+      - "1433:1433"
+    networks: 
+      - docker-tests
+  
+networks: 
+  docker-tests:
