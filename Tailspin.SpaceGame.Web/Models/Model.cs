@@ -1,4 +1,6 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace TailSpin.SpaceGame.Web.Models
 {
@@ -9,6 +11,8 @@ namespace TailSpin.SpaceGame.Web.Models
     {
         // The value that uniquely identifies this object.
         [JsonPropertyName("id")]
-        public string Id { get; set; }
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
     }
 }

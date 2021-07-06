@@ -1,4 +1,5 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace TailSpin.SpaceGame.Web.Models
 {
@@ -6,7 +7,7 @@ namespace TailSpin.SpaceGame.Web.Models
     {
         // The ID of the player profile associated with this score.
         [JsonPropertyName("profileId")]
-        public string ProfileId { get; set; }
+        public int ProfileId { get; set; }
 
         // The score value.
         [JsonPropertyName("score")]
@@ -19,5 +20,8 @@ namespace TailSpin.SpaceGame.Web.Models
         // The game region (map) the score is associated with.
         [JsonPropertyName("gameRegion")]
         public string GameRegion { get; set; }
+
+        [ForeignKey("ProfileId")]
+        public virtual Profile Profile { get; set; }
     }
 }
