@@ -2,7 +2,6 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <PublishChromeDriver>True</PublishChromeDriver>
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 
@@ -13,8 +12,6 @@
     <PackageReference Include="Selenium.Support" Version="3.141.0" />
     <PackageReference Include="Selenium.WebDriver" Version="3.141.0" />
     <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="91.0.4472.10100" />
-    <PackageReference Include="Selenium.WebDriver.GeckoDriver" Version="0.29.1" />
-    <PackageReference Include="Microsoft.Edge.SeleniumTools" Version="3.141.2" />
     <PackageReference Include="WebDriverManager" Version="2.11.1" />
   </ItemGroup>
 
